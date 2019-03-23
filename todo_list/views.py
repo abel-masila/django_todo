@@ -33,3 +33,19 @@ def delete(request, list_id):
     item.delete()
     messages.success(request, "Item has been deleted from List! ")
     return redirect('home')
+
+
+# Cross off action
+def cross_off(request, list_id):
+    item = List.objects.get(pk=list_id)
+    item.completed = True
+    item.save()
+    return redirect('home')
+
+
+# Uncross action
+def uncross(request, list_id):
+    item = List.objects.get(pk=list_id)
+    item.completed = False
+    item.save()
+    return redirect('home')
