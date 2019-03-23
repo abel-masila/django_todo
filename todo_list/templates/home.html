@@ -22,7 +22,7 @@
             <center>{{ items.completed }}</center>
         </td>
         <td>
-            <center>Delete</center>
+            <center><a href=" {% url 'delete' items.id %}">Delete</a></center>
         </td>
     </tr>
     {% else %}
@@ -32,7 +32,7 @@
             <center>{{ items.completed }}</center>
         </td>
         <td>
-            <center>Delete</center>
+          <center><a href=" {% url 'delete' items.id %}">Delete</a></center>
         </td>
     </tr>
     {% endif %}
