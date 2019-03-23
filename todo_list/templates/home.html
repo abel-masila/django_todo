@@ -2,13 +2,32 @@
 
 {% block title %} Todo-List {% endblock %}
 {% block content %}
-
 {% if all_items %}
-    <ul>
-        {% for items in all_items %}
-            <li>{{ items.item }} | {{ items.completed }} </li>
-        {% endfor %}
-    </ul>
+<table class="table table-bordered">
+    {% for items in all_items %}
+    {% if items.completed%}
+    <tr  class="table-secondary">
+        <td class="striker">{{ items.item }}</td>
+        <td>
+            <center>{{ items.completed }}</center>
+        </td>
+        <td>
+            <center>Delete</center>
+        </td>
+    </tr>
+    {% else %}
+    <tr>
+        <td>{{ items.item }}</td>
+        <td>
+            <center>{{ items.completed }}</center>
+        </td>
+        <td>
+            <center>Delete</center>
+        </td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+</table>
 {% endif %}
 
 {% endblock %}
